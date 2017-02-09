@@ -1,0 +1,24 @@
+<config>
+	<loginpage url="http://qyzb.zjhyjs.net.cn:8002/login.do"  successmsg="success:true">
+		<param key="username" value="wzshyyyyj"></param>
+		<param key="password" value="123456"></param>
+	</loginpage>
+	<mainpage url="qyzb/list1History.do?start=${page}&amp;limit=25" pagereg="(?s).*'totalCounts':(\d+).*" >
+		<deatchpage matches="{'id':'\'id\':(\\d+)','baseurl':'?id=${id}'}" index="0" pagesize="25" ></deatchpage>
+	</mainpage>
+	
+	<!-- <mainpage url="http://zjsc.zjsczs.org//use/maininfoMZSC.do?sysCmd=getAll&amp;schIsFirst=1" >
+		
+	</mainpage>
+	<mainpage url="http://zjsc.zjsczs.org/use/maininfoJGQY.do?sysCmd=getAll&amp;schIsFirst=1" >
+		
+	</mainpage>
+	<mainpage url="http://zjsc.zjsczs.org/use/maininfoPFSC.do?sysCmd=getAll&amp;schIsFirst=1" >
+		
+	</mainpage> -->
+	
+	
+	<!-- <mainpage url="http://zjsc.zjsczs.org/use/maininfoYZZT.do?sysCmd=getAll&amp;schIsFirst=1" >
+		<mainpage matches="{'e':'a[href^=/use]','attr':'href'}"></mainpage>
+	</mainpage> -->
+</config>

@@ -1,0 +1,94 @@
+<!--
+
+<option value="" selected>市</option>
+			                        
+			                    	
+			                    	
+			                    	 <option value="2" >杭州市</option>
+			                    	
+			                    	 <option value="3" >宁波市</option>
+			                    	
+			                    	 <option value="4" selected>温州市</option>
+			                    	
+			                    	 <option value="5" >嘉兴市</option>
+			                    	
+			                    	 <option value="6" >湖州市</option>
+			                    	
+			                    	 <option value="7" >绍兴市</option>
+			                    	
+			                    	 <option value="8" >金华市</option>
+			                    	
+			                    	 <option value="9" >衢州市</option>
+			                    	
+			                    	 <option value="10" >舟山市</option>
+			                    	
+			                    	 <option value="11" >台州市</option>
+			                    	
+			                    	 <option value="12" >丽水市</option>
+			                    	
+
+<[^v]+value="([^"]*)"[^>]+>([^<]+)<[^>]+>\s+     <param key="$1" value="$2"></param>\r\n
+
+<input type="radio" name="jingYZT" id="jingYZT" onclick="selectJingYZT();" value="1" checked="checked" />企业
+                                <input type="radio" name="jingYZT" id="jingYZT" onclick="selectJingYZT();" value="3" />个人
+                                <input type="radio" name="jingYZT" id="jingYZT" onclick="selectJingYZT();" value="4" />家庭农场
+                                <input type="radio" name="jingYZT" id="jingYZT" onclick="selectJingYZT();" value="5" />其它
+                                
+                                <[^v]+value="([^"]*)"[^>]+>([^\s]+)\s*    <param key="$1" value="$2"></param>\r\n
+  -->
+
+
+<config>
+	<loginpage url="http://zjsc.zjsczs.org/pub/login.do?sysCmd=login"  >
+		<param key="username" value="330300"></param>
+		<param key="userpawd" value="000000"></param>
+		<param key="rndCode" value="http://zjsc.zjsczs.org/servlet/Coder?text=topLogin_Jsp" code="true"></param>
+	</loginpage>
+	<rules id="maininfoYZZT">
+		<param key="tianBDW"  value="a" comment="填报单位"></param>
+		<param key="tianBR" value="b" comment="填报人"></param>
+		<param key="tianBRLXDH" value="c" comment="联系电话"></param>
+		<param key="jingYZT" value="d" comment="主体性质" type="radio" dicref="jingYZT"></param>
+		<param key="city" value="e" comment="地址1" type="select" dicref="address"></param>
+	</rules>
+	<dics id="address">
+		<param key="" value="市"></param>
+		<param key="2" value="杭州市"></param>
+		<param key="3" value="宁波市"></param>
+		<param key="4" value="温州市"></param>
+		<param key="5" value="嘉兴市"></param>
+		<param key="6" value="湖州市"></param>
+		<param key="7" value="绍兴市"></param>
+		<param key="8" value="金华市"></param>
+		<param key="9" value="衢州市"></param>
+		<param key="10" value="舟山市"></param>
+		<param key="11" value="台州市"></param>
+		<param key="12" value="丽水市"></param>
+	</dics>
+	<dics id="jingYZT">
+		<param key="1" value="企业"></param>
+		<param key="3" value="个人"></param>
+		<param key="4" value="家庭农场"></param>
+		<param key="5" value="其它"></param>	
+	</dics>
+	<mainpage url="use/maininfoYZZT.do?sysCmd=getAll&amp;page=${page}" pagereg="(?s).*当前\s+1/(\d+) 页.*">
+		<listpage matches="{'e':'a[href^=maininfoYZZT.do?sysCmd=edit]','attr':'href'}" prefixurl="use/" ref="maininfoYZZT" ></listpage>
+	</mainpage>
+	
+	<!-- <mainpage url="http://zjsc.zjsczs.org//use/maininfoMZSC.do?sysCmd=getAll&amp;schIsFirst=1" >
+		
+	</mainpage>
+	<mainpage url="http://zjsc.zjsczs.org/use/maininfoJGQY.do?sysCmd=getAll&amp;schIsFirst=1" >
+		
+	</mainpage>
+	<mainpage url="http://zjsc.zjsczs.org/use/maininfoPFSC.do?sysCmd=getAll&amp;schIsFirst=1" >
+		
+	</mainpage> -->
+	
+	
+	<!-- <mainpage url="http://zjsc.zjsczs.org/use/maininfoYZZT.do?sysCmd=getAll&amp;schIsFirst=1" >
+		<mainpage matches="{'e':'a[href^=/use]','attr':'href'}"></mainpage>
+	</mainpage> -->
+</config>
+
+
